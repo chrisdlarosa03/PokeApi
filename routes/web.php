@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PokeApiController;
+use App\Http\Controllers\SensoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,9 @@ Route::get('/', function () {
 */
 //Route::get('/',[PokeApiController::class,'getPokemons']);
 
-Route::get('/listaPokemon',[PokeApiController::class,'getPokemons']);
-
+Route::get('/listaPokemon',[PokeApiController::class,'mostrarSensores']);
+Route::get('/listaSensores',[SensoresController::class,'getSensoresData']);
+Route::get('/historialSensores',[SensoresController::class,'getSensoresDataHistory']);
+Route::get('/historialSensor/{sensor}', [SensoresController::class,'getSensorDataHistory']);
 Route::get('/mostrarPokemon/{name}', [PokeApiController::class,'mostrarPokemon']);
 
